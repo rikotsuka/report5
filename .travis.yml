@@ -5,11 +5,16 @@ script:
         echo Travis CI test int .test.yml
         ./same-test.sh
 
-language: ruby
-rvm:
- - 2.2
- - jruby
+language: node_js
+node_js:
+  - "8"
+script:
+  - npm run eslint
+  - npm run test-cov
 
+after_script:
+  - npm install coveralls
+  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 
 
 
