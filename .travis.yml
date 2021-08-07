@@ -5,7 +5,10 @@ script:
         echo Travis CI test int .test.yml
         ./same-test.sh
 
-
+language: ruby
+rvm:
+ - 2.2
+ - jruby
 
 
 
